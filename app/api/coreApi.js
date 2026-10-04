@@ -1279,7 +1279,9 @@ function buildMiningSummary(statusId, startBlock, endBlock, statusFunc) {
 							markItemsDone(1);
 
 
-							const coinbaseTx = await getRawTransaction(block.tx[0]);
+							const coinbaseTx = await getRawTransaction(block.tx[0], blockHash);
+
+
 
 							const minerInfo = utils.identifyMiner(coinbaseTx, height);
 							const totalFees = utils.getBlockTotalFeesFromCoinbaseTxAndBlockHeight(coinbaseTx, height);
